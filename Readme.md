@@ -35,7 +35,7 @@ Contributions, suggestions, and improvements are welcome! If you have a cool ide
 ---
 
 ## 🔗 **Stay Connected**
-- [GitHub Repository](https://github.com/Bloivating-Major/50-Projects-Using-HTML-CSS-JS)
+- [GitHub Repository](https://github.com/VrushaliUphade/50-Projects-In-50-Days)
 
 ---
 

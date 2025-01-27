@@ -8,7 +8,7 @@ Welcome to the **50 Days, 50 Projects** series! Each day features a new project 
 | **Day** | **Project Name**      | **Description**                              | **Live Demo**           | **Source Code**                                              |
 |---------|-----------------------|----------------------------------------------|-------------------------|-------------------------------------------------------------|
 | 1       | Expanding Cards       | Interactive cards that expand on click.      | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Project%2001/index.html)          | [Source Code](./Project%2001/) |
-
+| 2       | Progress Steps       | Progressing Steps that Makes progress on click.      | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Project%2002/index.html)          | [Source Code](./Project%2002/) |
 
 ---
 

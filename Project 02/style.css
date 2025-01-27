@@ -1,15 +1,23 @@
 
-:root{
-    --line-border-fill: #3498bd;
-    --line-border-empty: #e0e0e0;
+/* :root{ */
+    /* --line-border-fill: #3498bd;
+    --line-border-empty: #e0e0e0; */
+   :root {
+    --line-border-fill: #9b59b6; 
+    --line-border-empty: #3d3d3d; 
+    --background-color: #1c1c1c; 
+    --text-color: #dcdcdc; 
 }
+
+    
+    
 *{
     box-sizing: border-box;
 }
 
 
 body{
-    background-color: #f6f7fb;
+    background-color: var(--background-color);
     font-family: 'Roboto', sans-serif ;
     display: flex;
     align-items: center;
@@ -34,7 +42,7 @@ body{
     width: 350px;
 }
 .progress-container::before{
-    content: '';
+    content:'';
     background-color: var(--line-border-empty);
     position: absolute;
     top: 50%;
@@ -61,8 +69,8 @@ body{
     background-color: white;
     color: #999;
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,5 +100,5 @@ body{
 }
 .btn:disabled{
     background-color: var(--line-border-empty);
-    /* cursor: not-allowed; */
+    cursor: not-allowed;
 }

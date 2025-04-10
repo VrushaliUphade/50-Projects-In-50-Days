@@ -16,6 +16,87 @@ const addEventOnElem = function (elem, type, callback) {
   }
 }
 
+// read now icon
+document.querySelectorAll('.read-now-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const pdfPath = button.getAttribute('data-pdf');
+    if (pdfPath) {
+      window.open(pdfPath, '_blank');
+    }
+  });
+});
+
+
+//share icon
+
+document.querySelectorAll('.action-btn[title="Share Book"]').forEach(button => {
+  button.addEventListener('click', () => {
+    // Set your book details here
+    const bookTitle = "Atomic Habits";
+    const pdfURL = "/50%20Days%2050%20Projects/Book%20Reading%20Website/assets/books/atomic-habits.pdf";
+     // full link to your PDF file
+
+    // Create message for WhatsApp
+    const message = `Check out this book "${bookTitle}" to read online: ${pdfURL}`;
+
+    // WhatsApp Web share link
+    const whatsappLink = `https://web.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+
+    // Open in new tab
+    window.open(whatsappLink, '_blank');
+  });
+});
+
+
+//download icon
+// document.querySelectorAll('.action-btn[title="Download Book"]').forEach(button => {
+//   button.addEventListener('click', () => {
+//     const filePath = "./assets/books/Atomic%20habits.pdf"; // update if dynamic
+//     const fileName = "Atomic_Habits.pdf"; // optional custom file name
+
+//     const link = document.createElement("a");
+//     link.href = filePath;
+//     link.download = fileName;
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//   });
+// });
+
+document.querySelectorAll('.download-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const filePath = button.getAttribute('data-pdf');
+    const fileName = button.getAttribute('data-name') || 'Book.pdf';
+
+    const link = document.createElement("a");
+    link.href = filePath;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
+
+
+
+//like icon 
+document.querySelectorAll('.favorite-btn').forEach(button => {
+  button.addEventListener('dblclick', () => {
+    button.classList.toggle('active');
+
+    const icon = button.querySelector('ion-icon');
+    if (button.classList.contains('active')) {
+      icon.setAttribute('name', 'heart'); // filled heart
+    } else {
+      icon.setAttribute('name', 'heart-outline'); // outline heart
+    }
+  });
+});
+
+
+
+
+
 
 
 /**

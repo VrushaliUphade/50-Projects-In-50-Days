@@ -287,6 +287,9 @@ body {
 .product-card :is(.action-btn, .card-title):is(:hover, :focus) {
   color: var(--maximum-blue-green);
 }
+.favorite-btn.active ion-icon {
+  color: #66C5CC;
+}
 
 .product-card .card-content { padding: 10px; }
 
@@ -1121,6 +1124,54 @@ body {
     transform: translateY(-100%);
     animation: slideInTop 0.5s ease forwards;
   }
+
+/* contact */
+.contact {
+  padding: 50px 20px;
+  background-color: #0B0C28;
+  text-align: center;
+}
+
+
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #0B0C28;
+}
+
+.contact-form .btn {
+  background-color: #0B0C28;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 50px;
+  border-color: #fff;
+  cursor: pointer;
+ 
+  
+}
+.contact-form .contactbtn .btn {
+ margin-left: 150px;
+}
+
+.btn:hover {
+  background-color: #66C5CC; /* darker blue */
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+
+
 
 
 

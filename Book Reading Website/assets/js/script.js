@@ -33,7 +33,7 @@ document.querySelectorAll('.action-btn[title="Share Book"]').forEach(button => {
   button.addEventListener('click', () => {
     // Set your book details here
     const bookTitle = "Atomic Habits";
-    const pdfURL = "/50%20Days%2050%20Projects/Book%20Reading%20Website/assets/books/atomic-habits.pdf";
+    const pdfURL = "https://vrushaliuphade.github.io/50-Projects-In-50-Days/Book%20Reading%20Website/index.html";
      // full link to your PDF file
 
     // Create message for WhatsApp
@@ -49,20 +49,6 @@ document.querySelectorAll('.action-btn[title="Share Book"]').forEach(button => {
 
 
 //download icon
-// document.querySelectorAll('.action-btn[title="Download Book"]').forEach(button => {
-//   button.addEventListener('click', () => {
-//     const filePath = "./assets/books/Atomic%20habits.pdf"; // update if dynamic
-//     const fileName = "Atomic_Habits.pdf"; // optional custom file name
-
-//     const link = document.createElement("a");
-//     link.href = filePath;
-//     link.download = fileName;
-//     document.body.appendChild(link);
-//     link.click();
-//     document.body.removeChild(link);
-//   });
-// });
-
 document.querySelectorAll('.download-btn').forEach(button => {
   button.addEventListener('click', () => {
     const filePath = button.getAttribute('data-pdf');

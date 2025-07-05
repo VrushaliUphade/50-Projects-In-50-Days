@@ -11,6 +11,7 @@ Welcome to the **50 Days, 50 Projects** series! Each day features a new project 
 | 2       | Progress Steps       | Progressing Steps that Makes progress on click.      | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Project%2002/index.html)          | [Source Code](./Project%2002/) |
 | 3       | Rotating Navigation       | Rotating Navigation.      | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Project%2003/index.html)          | [Source Code](./Project%2003/) |
 | 4       | Book Reading Website      |  Book Reading Website       | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Book%20Reading%20Website/index.html)          | [Source Code](/Book%20Reading%20Website) |
+| 4       | Simple To-Do List      |  Simple To-Do List       | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Simple%20To-Do%20List/index.html)          | [Source Code](./Simple%20To-Do%20List) |
 ---
 
 ## 📜 **How to Use This Repository**

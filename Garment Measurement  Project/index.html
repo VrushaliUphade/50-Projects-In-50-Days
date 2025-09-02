@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garment Measurement Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Garment Measurement Form</h1>
+    <form id="measurementForm">
+      
+      <!-- Student Information -->
+      <section>
+        <h2>Student Information</h2>
+        <label>Institute Name:
+          <select name="institute" required>
+            <option value="">Select Institute</option>
+            <option value="S.L. Private ITI">S.L. Private ITI</option>
+          </select>
+        </label>
+
+        <label>Student Name: 
+          <input type="text" name="studentName" required>
+        </label>
+
+        <label>Branch:
+          <select name="branch" required>
+            <option value="">Select Branch</option>
+            <option>Diesel Mechanical</option>
+            <option>Electrical</option>
+            <option>Solar Technician</option>
+            <option>Fitter</option>
+            <option>Teachers Staff</option>
+          </select>
+        </label>
+
+        <label>Contact Number: 
+          <input type="tel" name="contact" pattern="[0-9]{10}" required>
+        </label>
+
+        <label>WhatsApp Number: 
+          <input type="tel" name="whatsapp" pattern="[0-9]{10}" required>
+        </label>
+
+        <label>Stitching Price (₹): 
+          <input type="number" name="price" step="0.1" required>
+        </label>
+      </section>
+
+      <!-- Shirt Measurement -->
+      <section>
+        <h2>Shirt Measurement</h2>
+        <label>Shirt Length: <input type="text" name="shirtLength" step="0.1" required></label>
+        <label>Chest: <input type="text" name="chest" step="0.1" required></label>
+        <label>Front: <input type="text" name="front" step="0.1" required></label>
+        <label>Shoulder: <input type="text" name="shoulder" step="0.1" required></label>
+        <label>Sleeve Length: <input type="text" name="sleeveLength" step="0.1" required></label>
+        <label>Neck Size: <input type="text" name="neckSize" step="0.1" required></label>
+        <label>Cup: <input type="text" name="cup" step="0.1" required></label>
+        <label>Armhole: <input type="text" name="armhole" step="0.1" required></label>
+        <label>Sleeve Width: <input type="text" name="sleeveWidth" step="0.1" required></label>
+        <label>Other Info: <textarea name="shirtOther"></textarea></label>
+      </section>
+
+      <!-- Pant Measurement -->
+      <section>
+        <h2>Pant Measurement</h2>
+        <label>Pant Length: <input type="text" name="pantLength" step="0.1" required></label>
+        <label>Waist: <input type="text" name="waist" step="0.1" required></label>
+        <label>Hip: <input type="text" name="hip" step="0.1" required></label>
+        <label>Thigh: <input type="text" name="thigh" step="0.1" required></label>
+        <label>Knee: <input type="text" name="knee" step="0.1" required></label>
+        <label>Bottom: <input type="text" name="bottom" step="0.1" required></label>
+        <label>Inseam Length: <input type="text" name="inseam" step="0.1" required></label>
+        <label>Other Info: <textarea name="pantOther"></textarea></label>
+      </section>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- FileSaver.js for Excel download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

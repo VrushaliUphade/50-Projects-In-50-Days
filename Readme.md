@@ -13,6 +13,7 @@ Welcome to the **50 Days, 50 Projects** series! Each day features a new project 
 | 4       | Book Reading Website      |  Book Reading Website       | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Book%20Reading%20Website/index.html)          | [Source Code](/Book%20Reading%20Website) |
 | 5       | Simple To-Do List      |  Simple To-Do List       | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/Simple%20To-Do%20List/index.html)          | [Source Code](./Simple%20To-Do%20List) |
 | 6       | T-size measurements      |  T-size measurements      | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/T-shirtsize%20project/index.html) |
+| 7       | T-shirt size      |  T-shirt size       | [Live Demo](https://vrushaliuphade.github.io/50-Projects-In-50-Days/T-shirt%20Size/index.html) |
 ---
 
 ## 📜 **How to Use This Repository**

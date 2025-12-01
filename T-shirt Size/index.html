@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Kids T-shirt Size Form</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 10px; }
+  h2 { text-align: center; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  table, th, td { border: 1px solid #000; }
+  th, td { padding: 8px; text-align: center; }
+  .section { margin-top: 25px; }
+  .btn { padding: 10px 20px; margin-top: 15px; cursor: pointer; }
+
+  .actions button {
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    table { font-size: 13px; }
+    input, select { width: 100% !important; }
+    .btn { width: 100%; margin-top: 10px; }
+  }
+
+  @media print { .btn { display: none; } }
+</style>
+</head>
+<body>
+
+<h2>Kids T-shirt Size Form (Age 10 to 16)</h2>
+
+<div class="section">
+  <label>Student Name:</label>
+  <input type="text" id="name" style="width: 200px;">
+</div>
+
+<input type="hidden" id="editIndex" value="-1">
+
+<h3>Enter Measurements</h3>
+<table>
+  <tr>
+    <th>Age Group</th>
+    <th>Chest</th>
+    <th>Length</th>
+    <th>Shoulder</th>
+    <th>Sleeve Half</th>
+    <th>Sleeve Full</th>
+    <th>T-shirt Size</th>
+  </tr>
+  <tr>
+    <td>
+      <select id="age">
+        <option>Age 10-11</option>
+        <option>Age 11-12</option>
+        <option>Age 13-14</option>
+        <option>Age 15-16</option>
+      </select>
+    </td>
+
+    <td>
+      <select id="chest">
+        <option value="">Select</option>
+        <option>22</option><option>23</option><option>24</option>
+        <option>25</option><option>26</option><option>27</option>
+        <option>28</option><option>29</option><option>30</option>
+        <option>31</option><option>32</option><option>33</option>
+        <option>34</option><option>35</option><option>36</option>
+        <option>37</option><option>38</option><option>39</option>
+        <option>40</option>
+      </select>
+    </td>
+
+    <td>
+      <select id="length">
+        <option value="">Select</option>
+        <option>20</option><option>21</option><option>22</option>
+        <option>23</option><option>24</option><option>25</option>
+        <option>26</option><option>27</option><option>28</option>
+      </select>
+    </td>
+
+    <td>
+      <select id="shoulder">
+        <option value="">Select</option>
+        <option>12</option><option>12.5</option><option>13</option>
+        <option>13.5</option><option>14</option><option>14.5</option>
+        <option>15</option><option>15.5</option>
+      </select>
+    </td>
+
+    <td>
+      <select id="sleeve_half">
+        <option value="">Select</option>
+        <option>5</option><option>5.5</option><option>6</option>
+        <option>6.5</option><option>7</option><option>7.5</option>
+      </select>
+    </td>
+
+    <td>
+      <select id="sleeve_full">
+        <option value="">Select</option>
+        <option>16</option><option>17</option><option>18</option>
+        <option>18.5</option><option>19</option><option>19.5</option>
+      </select>
+    </td>
+
+    <td>
+      <input type="text" id="size" readonly />
+    </td>
+  </tr>
+</table>
+
+<button class="btn" onclick="saveData()">Save</button>
+<button class="btn" onclick="print()">Print A4</button>
+
+<div class="section">
+  <h3>Size Summary</h3>
+  <table id="summaryTable">
+    <tr><th>Size</th><th>Quantity</th></tr>
+    <tr><td>Size 30</td><td id="q_30">0</td></tr>
+    <tr><td>Size 32</td><td id="q_32">0</td></tr>
+    <tr><td>Size 34</td><td id="q_34">0</td></tr>
+    <tr><td>Size 36</td><td id="q_36">0</td></tr>
+    <tr><th>Total</th><th id="q_total">0</th></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h3>Student Distribution Summary</h3>
+  <table id="studentTable">
+    <tr>
+      <th>Student Name</th>
+      <th>Size</th>
+      <th>Actions</th>
+    </tr>
+  </table>
+</div>
+
+<script>
+function getKidsSize(chest){
+ chest = parseFloat(chest);
+ if(chest <= 31.5) return 'Size 30';
+ if(chest <= 32.5) return 'Size 32';
+ if(chest <= 34) return 'Size 34';
+ if(chest <= 36) return 'Size 36';
+ return 'Custom';
+}
+
+function autoUpdateSize(){
+  document.getElementById('size').value = getKidsSize(document.getElementById('chest').value);
+}
+
+document.getElementById('chest').addEventListener('input', autoUpdateSize);
+document.getElementById('length').addEventListener('input', autoUpdateSize);
+document.getElementById('shoulder').addEventListener('input', autoUpdateSize);
+document.getElementById('sleeve_half').addEventListener('input', autoUpdateSize);
+document.getElementById('sleeve_full').addEventListener('input', autoUpdateSize);
+('input', function(){
+ document.getElementById('size').value = getKidsSize(this.value);
+});
+
+function saveData() {
+  let index = document.getElementById('editIndex').value;
+
+  autoUpdateSize();
+
+  let entry = {
+    name: document.getElementById('name').value,
+    age: document.getElementById('age').value,
+    chest: document.getElementById('chest').value,
+    length: document.getElementById('length').value,
+    shoulder: document.getElementById('shoulder').value,
+    sleeve_half: document.getElementById('sleeve_half').value,
+    sleeve_full: document.getElementById('sleeve_full').value,
+    size: getKidsSize(document.getElementById('chest').value)
+  };
+
+  let list = JSON.parse(localStorage.getItem('kids_list') || '[]');
+
+  if(index == -1){
+    list.push(entry);
+  } else {
+    list[index] = entry;
+    document.getElementById('editIndex').value = -1;
+  }
+
+  localStorage.setItem('kids_list', JSON.stringify(list));
+  updateStudentTable();
+  updateSummary();
+  alert("Saved Successfully!");
+}
+
+function updateStudentTable(){
+  let list = JSON.parse(localStorage.getItem('kids_list') || '[]');
+  let table = document.getElementById('studentTable');
+
+  table.innerHTML = `
+    <tr>
+      <th>Student Name</th>
+      <th>Size</th>
+      <th>Actions</th>
+    </tr>
+  `;
+
+  list.forEach((s, i) => {
+    let row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${s.name}</td>
+      <td>${s.size}</td>
+      <td class="actions">
+        <button onclick="editRow(${i})">Edit</button>
+        <button onclick="deleteRow(${i})">Delete</button>
+      </td>
+    `;
+    table.appendChild(row);
+  });
+}
+
+function editRow(i){
+  let list = JSON.parse(localStorage.getItem('kids_list') || '[]');
+  let d = list[i];
+
+  document.getElementById('name').value = d.name;
+  document.getElementById('age').value = d.age;
+  document.getElementById('chest').value = d.chest;
+  document.getElementById('length').value = d.length;
+  document.getElementById('shoulder').value = d.shoulder;
+  document.getElementById('sleeve_half').value = d.sleeve_half;
+  document.getElementById('sleeve_full').value = d.sleeve_full;
+  document.getElementById('size').value = d.size;
+
+  document.getElementById('editIndex').value = i;
+}
+
+function deleteRow(i){
+  let list = JSON.parse(localStorage.getItem('kids_list') || '[]');
+  list.splice(i, 1);
+  localStorage.setItem('kids_list', JSON.stringify(list));
+  updateStudentTable();
+  updateSummary();
+}
+
+function updateSummary(){
+ let list = JSON.parse(localStorage.getItem('kids_list') || '[]');
+ let c30=0,c32=0,c34=0,c36=0;
+
+ list.forEach(i => {
+   if(i.size === 'Size 30') c30++;
+   else if(i.size === 'Size 32') c32++;
+   else if(i.size === 'Size 34') c34++;
+   else if(i.size === 'Size 36') c36++;
+ });
+
+ document.getElementById('q_30').innerText = c30;
+ document.getElementById('q_32').innerText = c32;
+ document.getElementById('q_34').innerText = c34;
+ document.getElementById('q_36').innerText = c36;
+ document.getElementById('q_total').innerText = c30 + c32 + c34 + c36;
+}
+
+updateStudentTable();
+updateSummary();
+</script>
+</body>
+</html>
